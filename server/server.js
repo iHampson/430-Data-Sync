@@ -1,14 +1,12 @@
 var app = require('express')();
 var server = require('http').Server(app);
-// var socketIo = require('socket.io');
 var io = require('socket.io')(server);
-
 var fs = require('fs'); /// Might be unneccessary on Heroku
+
 var port = process.env.PORT || process.env.NODE_PORT || 3000;
 
 var index = fs.readFileSync(__dirname + "/../client/client.html");
 
-// var io = socketIo(server.listen(port)); // This is the issue
 server.listen(port);
 console.log("Listening on 127.0.0.1:" + port);
 
